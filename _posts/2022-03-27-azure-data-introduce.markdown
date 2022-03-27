@@ -15,7 +15,7 @@ Ghi chép mình viết hôm nay bao gồm các khái niệm cơ bản vè dữ l
 
 Trong vài thập kỷ qua, lượng dữ liệu được tạo ra bởi các hệ thống, ứng dụng và thiết bị đã tăng lên đáng kể. Dữ liệu ở khắp mọi nơi, trong vô số cấu trúc và định dạng. Giờ đây việc thu thập dữ liệu trở nên dễ dàng hơn, chi phí cho việc lưu trữ dữ liệu cũng rẻ hơn. Các giải pháp dữ liệu (Data solutions) bao gồm các công nghệ và platforms có thể giúp tạo thuận lợi cho việc thu thập, phân tích và lưu trữ thông tin có giá trị. Mọi doanh nghiệp đều muốn tăng doanh thu của mình và tạo ra lợi nhuận lớn hơn. Trong thị trường cạnh tranh này, thì dữ liệu được xem là một tài sản quý giá. Khi dữ liệu được phân tích một cách đúng đắn, nó sẽ sẽ cung cấp vô số thông tin hưu ích và giúp ích cho các quyết định kinh doanh quan trọng.
 
-Khả năng nắm bắt, lưu trữ và phân tích dữ liệu là các yêu cầu cốt lõi đối với mọi tổ chức trên thế giới. Trong tài liệu này, chúng ta sẽ tìm hiểu về các tuỳ chọn để biểu diễn và lưu trữ dữ liệu, và ũng như các công việc điển hình liên quan đến lĩnh vực này. Thông qua đó, chúng ta có thể xây dựng được nền tảng để tìm hiểu về các kỹ thuật và dịch vụ được sử dụng để làm việc với dữ liệu.
+Khả năng nắm bắt, lưu trữ và phân tích dữ liệu là các yêu cầu cốt lõi đối với mọi tổ chức trên thế giới. Trong tài liệu này, chúng ta sẽ tìm hiểu về các tuỳ chọn để biểu diễn và lưu trữ dữ liệu, và cũng như các công việc điển hình liên quan đến lĩnh vực này. Thông qua đó, chúng ta có thể xây dựng được nền tảng để tìm hiểu về các kỹ thuật và dịch vụ được sử dụng để làm việc với dữ liệu.
 
 Tài liệu này bao gồm:
 
