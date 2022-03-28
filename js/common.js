@@ -85,7 +85,7 @@ $(document).ready(function() {
   /* =======================
   // Scroll Top Button
   ======================= */
-  $(".top").click(function() {
+  /*$(".top").click(function() {
     $("html, body")
       .stop()
       .animate({ scrollTop: 0 }, "slow", "swing");
@@ -97,6 +97,5 @@ $(document).ready(function() {
       $(".top").removeClass("is-active");
     }
   });
-
-
+*/
 });
