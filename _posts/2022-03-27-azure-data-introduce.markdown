@@ -6,6 +6,9 @@ image:  azure_1.png
 tags:   Azure, Data-Analysis
 ---
 
+* TOC
+{:toc}
+
 # Tựa
 
 Hello cả nhà, hôm nay thì mình cũng mò mẫm tự học về Data Analysis, sau một hồi tìm hiểu thì thấy a Microsoft có khá nhiều tài liệu hay ho từ cơ bản cho những người mới tìm hiểu, đi từ những khái niệm cơ bản nhất về dữ liệu. Bản thân mình cũng có một chút hứng thú về mảng này nên cũng ngồi đọc về nó. Các tài liệu này thì các bạn có thể tìm tại <https://docs.microsoft.com/en-us/learn/>. Sau khi đọc qua thì một phần vì muốn ghi chép lại cũng như rèn thêm khả năng dịch thuật nên mình quyết định sẽ đi "Vietsub" lại một số cái docs. Bạn đọc nếu cảm thấy có sai sót về các thông tin, thuật ngữ... về tài liệu thì rất mong mọi người có thể góp ý, sửa sai cho mình :D.
