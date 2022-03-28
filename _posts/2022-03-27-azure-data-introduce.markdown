@@ -24,3 +24,94 @@ Tài liệu này bao gồm:
 - Các tuỳ chọn lưu dữ liệu trong Database.
 - Đặc điểm các giải pháp xử lý dữ liệu giao dịch.
 - Đặc điểm của các giải pháp xử lý dữ liệu phân tích.
+
+# Chương II: Các định dạng dữ liệu
+
+Dữ liệu là một tập hợp các dữ kiện như các số, mô tả và từ những quan sát được sử dụng để thu thập lại thông tin. Các cấu trúc dữ liệu là cách mà các dữ liệu thường được tổ chức đại diện cho các thực thể quan trọng với một tổ chức như: khách hàng, sản phẩm, đơn đặt hàng,... Mỗi thực thể thường có một hoặc nhiều thuộc tính hoặc đặc điểm (ví dụ: khách hàng có thể có tên, địa chỉ, số điện thoại, v.v.).
+
+Dữ liệu có thể phân loại thành các loại sau: Structured data - dữ liệu có cấu trúc; semi-structured; và unstructured.
+
+## Structured data - Dữ liệu có cấu trúc
+
+Dữ liệu có cấu trúc là dữ liệu tuân theo một lược đồ cố định, vì vậy tất cả dữ liệu đều có các trường hoặc thuộc tính giống nhau. Thông thường nhất, lược đồ cho các thực thể dữ liệu có cấu trúc là dạng bảng, điều này cũng có nghĩa là dữ liệu được biểu thị trong một hoặc nhiều bảng, các bảng này chứa các dòng để đại diện cho từng trường hợp cụ thể của mỗi thực thể dữ liệu, và các cột thì đại diện cho thuộc tính của thực thể. Ví dụ dưới đây chỉ ra cách biểu diễn dạng bảng cho thực thể khách hàng và sản phẩm.
+
+![Data table](./iamges/1.png)
+
+Dữ liệu có cấu trúc thường được lưu trong cơ sở dữ liệu, trong đó các bảng có thể tham chiếu lần nhau thông qua các khoá trong mô hình quan hệ.
+
+## Semi-structured data - Dữ liệu bán cấu trúc
+
+Dữ liệu bán cấu trúc là thông tin có một số cấu trúc, nhưng cho phép một số biến thể giữa các cá thể thực thể. Ví dụ: trong khi hầu hết khách hàng có thể có một địa chỉ email, một số có thể có nhiều địa chỉ email và một số có thể không có.
+
+Một trong những định dạng phổ biến của loại dữ liệu này có thể nói đến là `JSON` (JavaScript Object Notation). Ví dụ dưới đây hiển thị một cặp dữ liệu JSON chứa thông tin khách hàng. Bạn thấy mỗi khách hàng sẽ có địa chỉ và thông tin liên hệ, nhưng sẽ có một số trường khác nhau giữa 2 khách hàng:
+
+Customer 1
+
+```json
+{
+  "firstName": "Joe",
+  "lastName": "Jones",
+  "address":
+  {
+    "streetAddress": "1 Main St.",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10099"
+  },
+  "contact":
+  [
+    {
+      "type": "home",
+      "number": "555 123-1234"
+    },
+    {
+      "type": "email",
+      "address": "joe@litware.com"
+    }
+  ]
+}
+```
+
+Customer 2
+
+```json
+{
+  "firstName": "Samir",
+  "lastName": "Nadoy",
+  "address":
+  {
+    "streetAddress": "123 Elm Pl.",
+    "unit": "500",
+    "city": "Seattle",
+    "state": "WA",
+    "postalCode": "98999"
+  },
+  "contact":
+  [
+    {
+      "type": "email",
+      "address": "samir@northwind.com"
+    }
+  ]
+}
+```
+
+## Unstructured data - Dữ liệu không cấu trúc
+
+Không phải tất cả các dữ liệu đều có cấu trúc hay bán cấu trúc. Ví dụ như với các tài liệu, hình ảnh, âm thanh, video và các file binary có thể sẽ không có các cấu trúc đặc biệt. Các loại dữ liệu đó được phân thành `Dữ liệu không cấu trúc`.
+
+Vi dụ về dữ liệu không có cấu trúc
+
+![Data table](./iamges/2.png)
+
+## Lưu trữ dữ liệu
+
+Các tổ chức thường lưu trữ dữ liệu ở định dạng có cấu trúc, bán cấu trúc hoặc không có cấu trúc để ghi lại thông tin chi tiết về các thực thể (ví dụ: khách hàng và sản phẩm), các sự kiện cụ thể (chẳng hạn như giao dịch mua bán) hoặc thông tin khác dưới dạng tài liệu, hình ảnh và các định dạng khác. Dữ liệu được lưu trữ sau đó có thể được truy xuất để phân tích và báo cáo sau này.
+
+Có hai loại lưu trữ dữ liệu phổ biến được sử dụng phổ biến:
+
+- Files
+
+- Databases
+
+Chúng ta sẽ khám phá cả hai kiểu lưu trữ dữ liệu này ở phần dưới.
