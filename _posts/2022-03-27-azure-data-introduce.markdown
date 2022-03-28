@@ -36,7 +36,7 @@ Dữ liệu có thể phân loại thành các loại sau: Structured data - d�
 
 Dữ liệu có cấu trúc là dữ liệu tuân theo một lược đồ cố định, vì vậy tất cả dữ liệu đều có các trường hoặc thuộc tính giống nhau. Thông thường nhất, lược đồ cho các thực thể dữ liệu có cấu trúc là dạng bảng, điều này cũng có nghĩa là dữ liệu được biểu thị trong một hoặc nhiều bảng, các bảng này chứa các dòng để đại diện cho từng trường hợp cụ thể của mỗi thực thể dữ liệu, và các cột thì đại diện cho thuộc tính của thực thể. Ví dụ dưới đây chỉ ra cách biểu diễn dạng bảng cho thực thể khách hàng và sản phẩm.
 
-![Data table](./images/structed_data.png)
+![Data table](../images/structed_data.png)
 
 Dữ liệu có cấu trúc thường được lưu trong cơ sở dữ liệu, trong đó các bảng có thể tham chiếu lần nhau thông qua các khoá trong mô hình quan hệ.
 
@@ -103,7 +103,7 @@ Không phải tất cả các dữ liệu đều có cấu trúc hay bán cấu 
 
 Vi dụ về dữ liệu không có cấu trúc
 
-![Data table](./images/unstructed_data.png)
+![Data table](../images/unstructed_data.png)
 
 ## Lưu trữ dữ liệu
 
