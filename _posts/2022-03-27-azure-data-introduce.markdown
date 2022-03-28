@@ -223,3 +223,35 @@ Một vài cách tối ưu định dạng file phổ biến gồm có Avro, ORC,
 - ORC (Optimized Row Columnar format) tổ chức dữ liệu thành cột thay vì hàng. Nó được phát triển bởi HortonWorks để tối ưu hoá hoạt động đọc và ghi trong Apache Hive. Tệp ORC chứa các dải dữ liệu - stripe. Mỗi stripe chứa dữ liệu cho cột hoặc tập hợp các hàng. Một stripe sẽ chứa chỉ mục vào các hàng trong stripe, dữ liệu cho mỗi hàng và mợt chân trang chứa thống kê (đếm, tổng, tối đa, tối thiểu, v.v.) cho mỗi cột.
 
 - Parquet là một định dạng dữ liệu cột khác. Nó được tạo ra bởi Cloudera và Twitter. Tệp Parquet chứa các nhóm hàng. Dữ liệu cho mỗi cột được lưu trữ cùng nhau trong cùng một nhóm hàng. Mỗi nhóm hàng chứa một hoặc nhiều phần dữ liệu.  Tệp Parquet bao gồm metadata mô tả tập hợp các hàng được tìm thấy trong mỗi đoạn. Một ứng dụng có thể sử dụng metadata này để nhanh chóng xác định vị trí đúng phân đoạn cho một tập hợp các hàng nhất định và truy xuất dữ liệu trong các cột được chỉ định cho các hàng này. Parquet chuyên lưu trữ và xử lý các kiểu dữ liệu lồng nhau một cách hiệu quả. Nó hỗ trợ các chương trình nén và mã hóa rất hiệu quả.
+
+## Databases
+
+Cơ sở dữ liệu được sử dụng để xác định một hệ thống trung tâm mà trong đó dữ liệu có thể được lưu trữ và truy vấn. Một cách đơn giản hơn, hệ thống file mà các file được lưu trữ trên đó cũng được xem là 1 loại CSDL; nhưng khi chúng ta dùng thuật ngữ này trong ngữ cảnh dữ liệu chuyên nghiệp, chúng ta thường muốn nói đến một hệ thống chuyên dụng để quản lý các bản ghi dữ liệu hơn là các tệp. 
+
+1. Relational databases - CSDL quan hệ:
+
+CSDL quan hệ thường dùng để lưu trữ và truy vấn dữ liệu có cấu trúc. Dữ liệu được lưu trữ trong các bảng sẽ đại diện cho các thực thể như khách hàng, sản phẩm, đơn đặt hàng. Mỗi thể hiện của một thực thể sẽ được gán 1 khoá chính (primary key) duy nhất để nhận dạng nó, và có những khoá khác để tham chiếu đến các thực thế trong các bảng khác. Ví dụ: Khoá chính của khách hàng có thể tham chiếu đến bản ghi đơn đặt hàng để chỉ ra khách hàng nào đã đặt hàng. Việc sử dụng các khóa để tham chiếu các thực thể dữ liệu cho phép một cơ sở dữ liệu quan hệ được chuẩn hóa; điều này một phần là nhằm loại bỏ các giá trị trùng lặp, ví dụ thông tin chi tiết về 1 khách hàng thì chỉ được lưu 1 lần, không phải cho mỗi đơn hàng mà khách hàng này đặt. Các bảng được quản lý và truy vấn bằng cách sử dụng Ngôn ngữ truy vấn có cấu trúc Structured Query Language (SQL), dựa trên chuẩn ANSII, vì vậy nó tương tự nhau trên nhiều hệ thống CSDL.
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/relational-database.png)
+
+2. Non-relational databases:
+
+Non-relational databases là hệ thống quản lý dữ liệu không áp dụng lược đồ quan hệ cho dữ liệu, CSDL đặc trưng cho dạng này thường được gọi là NoSQL, mặc dù một số vẫn hỗ trợ biến thể của SQL.
+
+Có 4 loại Non-relational databases thường được sử dụng.
+
+- CSDL dạng key - value : trong đó một bản ghi sẽ chứa một key duy nhất và liên kết với một giá trị và có thể lưu ở bất kỳ định dạng nào.
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/key-value-store.png)
+
+- Document DB: là một dạng CSDL key-value đặc biệt, trong đó value sẽ là một JSON (hệ thống được tối ưu hóa để phân tích cú pháp và truy vấn).
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/document-store.png)
+
+- CSDL họ cột - Column family databases: lưu trữ dữ liệu thành dạng bảng bao gồm các hàng và cột, nhưng có thể chia các cột thành các nhóm được gọi là họ cột. Mỗi họ cột chứa một tập hợp các cột có liên quan với nhau về mặt logic. 
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/column-family-store.png)
+
+- Graph DB : lưu trữ các thực thể dưới dạng các nodes và các links để xác định mối quan hệ giữa chúng.
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/graph.png)
