@@ -119,3 +119,107 @@ Có hai loại lưu trữ dữ liệu phổ biến được sử dụng phổ bi
 - Databases
 
 Chúng ta sẽ khám phá cả hai kiểu lưu trữ dữ liệu này ở phần dưới.
+
+## File Storage
+
+Khả năng lưu trữ dữ liệu trong tệp là yếu tố cốt lõi của bất kỳ hệ thống máy tính nào. Các tệp có thể được lưu trữ trong các hệ thống tệp cục bộ trên đĩa cứng của máy tính cá nhân của bạn và trên các phương tiện di động như ổ USB; nhưng trong hầu hết các tổ chức, các tệp dữ liệu quan trọng được lưu trữ tập trung trong một số loại hệ thống lưu trữ tệp dùng chung. Càng ngày, vị trí lưu trữ trung tâm đó càng được lưu trữ trên đám mây, cho phép lưu trữ hiệu quả về chi phí, an toàn và đáng tin cậy cho khối lượng lớn dữ liệu.
+
+Định dạng tệp cụ thể được sử dụng để lưu trữ dữ liệu phụ thuộc vào một số yếu tố, bao gồm:
+
+- Loại dữ liệu đang được lưu trữ (có cấu trúc, bán cấu trúc hoặc không có cấu trúc).
+
+- Các ứng dụng và dịch vụ sẽ cần đọc, ghi và xử lý dữ liệu.
+
+- Con người cần các tệp dữ liệu có thể đọc được hoặc được tối ưu hóa để lưu trữ và xử lý hiệu quả.
+
+Dưới đây là một số tệp phổ biến:
+
+1. Delimited text files
+
+Dữ liệu thường được lưu trữ ở định dạng văn bản thuần túy với các trường phân cách và hàng cụ thể. Định dạng phổ biến nhất cho dữ liệu được phân tách là các giá trị được phân tách bằng dấu phẩy - Comma Separated Values (CSV), trong đó các trường được phân tách bằng dấu phẩy và các hàng được kết thúc bằng một ký tự xuống dòng / dòng mới. Theo tùy chọn, dòng đầu tiên có thể bao gồm tên trường. Các định dạng phổ biến khác bao gồm các giá trị được phân tách bằng tab (TSV) và được phân cách bằng dấu cách (trong đó các tab hoặc dấu cách được sử dụng để phân tách các trường) và dữ liệu có độ rộng cố định trong đó mỗi trường được phân bổ một số ký tự cố định. Văn bản được phân tách là một lựa chọn tốt cho dữ liệu có cấu trúc cần được truy cập bởi một loạt các ứng dụng và dịch vụ ở định dạng con người có thể đọc được.
+
+Ví dụ sau cho thấy dữ liệu khách hàng ở định dạng được phân tách bằng dấu phẩy - CSV
+
+```
+FirstName,LastName,Email
+Joe,Jones,joe@litware.com
+Samir,Nadoy,samir@northwind.com
+```
+
+2. JavaScript Object Notation (JSON)
+
+JSON là một định dạng phổ biến trong đó lược đồ tài liệu phân cấp được sử dụng để xác định các thực thể dữ liệu (đối tượng) có nhiều thuộc tính. Mỗi thuộc tính có thể là một đối tượng (hoặc một tập hợp các đối tượng); làm cho JSON trở thành một định dạng linh hoạt tốt cho cả dữ liệu có cấu trúc và bán cấu trúc.
+
+Ví dụ sau cho thấy một tài liệu JSON chứa một tập hợp các khách hàng. Mỗi khách hàng có ba thuộc tính (firstName, lastName và contact) và thuộc tính contact chứa một tập hợp các đối tượng đại diện cho một hoặc nhiều phương thức liên hệ (email hoặc điện thoại). Lưu ý rằng các đối tượng được đặt trong dấu ngoặc nhọn ({..}) và các tập hợp được đặt trong dấu ngoặc vuông ([..]). Các thuộc tính được biểu diễn bằng các cặp tên: giá trị và được phân tách bằng dấu phẩy (,).
+
+```json
+{
+  "customers":
+  [
+    {
+      "firstName": "Joe",
+      "lastName": "Jones",
+      "contact":
+      [
+        {
+          "type": "home",
+          "number": "555 123-1234"
+        },
+        {
+          "type": "email",
+          "address": "joe@litware.com"
+        }
+      ]
+    },
+    {
+      "firstName": "Samir",
+      "lastName": "Nadoy",
+      "contact":
+      [
+        {
+          "type": "email",
+          "address": "samir@northwind.com"
+        }
+      ]
+    }
+  ]
+}
+```
+
+3. Extensible Markup Language (XML)
+
+XML là một định dạng dữ liệu con người có thể đọc được, phổ biến trong những năm 1990 và 2000. Nó phần lớn đã được thay thế bằng định dạng JSON ít dài dòng hơn, nhưng vẫn có một số hệ thống sử dụng XML để biểu diễn dữ liệu. XML sử dụng các thẻ được đặt trong dấu ngoặc nhọn (<../>) để xác định các phần tử và thuộc tính, như được minh họa trong ví dụ này:
+
+```xml
+<Customers>
+  <Customer name="Joe" lastName="Jones">
+    <ContactDetails>
+      <Contact type="home" number="555 123-1234"/>
+      <Contact type="email" address="joe@litware.com"/>
+    </ContactDetails>
+  </Customer>
+  <Customer name="Samir" lastName="Nadoy">
+    <ContactDetails>
+      <Contact type="email" address="samir@northwind.com"/>
+    </ContactDetails>
+  </Customer>
+</Customers>
+```
+
+3. Binary Large Object (BLOB)
+
+Tất cả các têp được lưu dữ dưới dạng dữ  liệu nhị phân (1 và 0), nhưng ở các định dạng mà con người có thể đọc được như đã nói ở trên, các byte dữ liệu nhị phân được ánh xạ thành các ký tự có thể in được (thường là thành ASCII hoặc Unicode). Tuy nhiên, một số định dạng tệp, đặc biệt đối với dữ liệu không có cấu trúc, lưu trữ dữ liệu dưới dạng tệp nhị phân thô mà các ứng dụng phải diễn giải và hiển thị. Các loại dữ liệu phổ biến được lưu trữ dưới dạng nhị phân bao gồm hình ảnh, video, âm thanh và các tài liệu dành riêng cho ứng dụng.
+
+Khi làm việc với dữ liệu như thế này, các chuyên gia dữ liệu thường gọi các tệp dữ liệu là BLOB (Binary Large Object).
+
+4. Tối ưu các định dạng tệp tin:
+
+Mặc dù các định dạng mà con người có thể đọc được cho dữ liệu có cấu trúc và bán cấu trúc có thể hữu ích, nhưng chúng thường không được tối ưu hóa cho không gian lưu trữ hoặc quá trình xử lý. Theo thời gian, một số định dạng tệp chuyên biệt cho phép nén, lập chỉ mục, lưu trữ và xử lý hiệu quả đã được phát triển.
+
+Một vài cách tối ưu định dạng file phổ biến gồm có Avro, ORC, và Parquet:
+
+- Avro là một định dạng dựa trên bảng. Nó được tạo bởi Apache. Mỗi bản ghi chứa một tiêu đề mô tả cấu trúc của dữ liệu trong bản ghi. Tiêu đề này được lưu trữ duoi71dang5 JSON. Dữ liệu được lưu trữ dưới dạng binary. Một ứng dụng sử dụng thông tin trong tiêu đề để phân tích cú pháp dữ liệu nhị phân và trích xuất các trường mà nó chứa. Avro là một định dạng tốt để nén dữ liệu và giảm thiểu các yêu cầu về băng thông mạng và lưu trữ.
+
+- ORC (Optimized Row Columnar format) tổ chức dữ liệu thành cột thay vì hàng. Nó được phát triển bởi HortonWorks để tối ưu hoá hoạt động đọc và ghi trong Apache Hive. Tệp ORC chứa các dải dữ liệu - stripe. Mỗi stripe chứa dữ liệu cho cột hoặc tập hợp các hàng. Một stripe sẽ chứa chỉ mục vào các hàng trong stripe, dữ liệu cho mỗi hàng và mợt chân trang chứa thống kê (đếm, tổng, tối đa, tối thiểu, v.v.) cho mỗi cột.
+
+- Parquet là một định dạng dữ liệu cột khác. Nó được tạo ra bởi Cloudera và Twitter. Tệp Parquet chứa các nhóm hàng. Dữ liệu cho mỗi cột được lưu trữ cùng nhau trong cùng một nhóm hàng. Mỗi nhóm hàng chứa một hoặc nhiều phần dữ liệu.  Tệp Parquet bao gồm metadata mô tả tập hợp các hàng được tìm thấy trong mỗi đoạn. Một ứng dụng có thể sử dụng metadata này để nhanh chóng xác định vị trí đúng phân đoạn cho một tập hợp các hàng nhất định và truy xuất dữ liệu trong các cột được chỉ định cho các hàng này. Parquet chuyên lưu trữ và xử lý các kiểu dữ liệu lồng nhau một cách hiệu quả. Nó hỗ trợ các chương trình nén và mã hóa rất hiệu quả.
