@@ -7,7 +7,8 @@ tags:   Azure, Data-Analysis
 ---
 
 # Tựa
-Hello cả nhà, hôm nay thì mình cũng mò mẫm tự học về Data Analysis, sau một hồi tìm hiểu thì thấy a Microsoft có khá nhiều tài liệu hay ho từ cơ bản cho những người mới tìm hiểu, đi từ những khái niệm cơ bản nhất về dữ liệu. Bản thân mình cũng có một chút hứng thú về mảng này nên cũng ngồi đọc về nó. Các tài liệu này thì các bạn có thể tìm tại <https://docs.microsoft.com/en-us/learn/>. Sau khi đọc qua thì một phần vì muốn ghi chép lại cũng như rèn thêm khả năng dịch thuật nên mình quyết định sẽ đi "Vietsub" lại một số cái docs. Bạn đọc nếu cảm thấy có sai sót về các thông tin, thuật ngữ... về tài liệu thì rất mong mọi người có thể góp ý, sửa sai cho mình :D. 
+
+Hello cả nhà, hôm nay thì mình cũng mò mẫm tự học về Data Analysis, sau một hồi tìm hiểu thì thấy a Microsoft có khá nhiều tài liệu hay ho từ cơ bản cho những người mới tìm hiểu, đi từ những khái niệm cơ bản nhất về dữ liệu. Bản thân mình cũng có một chút hứng thú về mảng này nên cũng ngồi đọc về nó. Các tài liệu này thì các bạn có thể tìm tại <https://docs.microsoft.com/en-us/learn/>. Sau khi đọc qua thì một phần vì muốn ghi chép lại cũng như rèn thêm khả năng dịch thuật nên mình quyết định sẽ đi "Vietsub" lại một số cái docs. Bạn đọc nếu cảm thấy có sai sót về các thông tin, thuật ngữ... về tài liệu thì rất mong mọi người có thể góp ý, sửa sai cho mình :D.
 
 Ghi chép mình viết hôm nay bao gồm các khái niệm cơ bản vè dữ liệu, được dịch lại từ document <https://docs.microsoft.com/en-us/learn/paths/azure-data-fundamentals-explore-core-data-concepts/>, nó bao gồm những khái niệm, phân loại lưu trữ dữ liệu cũng như các kỹ thuật xử lý dữ liệu.
 
@@ -35,7 +36,7 @@ Dữ liệu có thể phân loại thành các loại sau: Structured data - d�
 
 Dữ liệu có cấu trúc là dữ liệu tuân theo một lược đồ cố định, vì vậy tất cả dữ liệu đều có các trường hoặc thuộc tính giống nhau. Thông thường nhất, lược đồ cho các thực thể dữ liệu có cấu trúc là dạng bảng, điều này cũng có nghĩa là dữ liệu được biểu thị trong một hoặc nhiều bảng, các bảng này chứa các dòng để đại diện cho từng trường hợp cụ thể của mỗi thực thể dữ liệu, và các cột thì đại diện cho thuộc tính của thực thể. Ví dụ dưới đây chỉ ra cách biểu diễn dạng bảng cho thực thể khách hàng và sản phẩm.
 
-![Data table](./iamges/1.png)
+![Data table](structed_data.png)
 
 Dữ liệu có cấu trúc thường được lưu trong cơ sở dữ liệu, trong đó các bảng có thể tham chiếu lần nhau thông qua các khoá trong mô hình quan hệ.
 
@@ -102,7 +103,7 @@ Không phải tất cả các dữ liệu đều có cấu trúc hay bán cấu 
 
 Vi dụ về dữ liệu không có cấu trúc
 
-![Data table](./iamges/2.png)
+![Data table](unstructed_data.png)
 
 ## Lưu trữ dữ liệu
 
