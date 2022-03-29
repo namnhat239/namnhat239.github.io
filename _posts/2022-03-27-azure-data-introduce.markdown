@@ -120,7 +120,7 @@ Có hai loại lưu trữ dữ liệu phổ biến được sử dụng phổ bi
 
 Chúng ta sẽ khám phá cả hai kiểu lưu trữ dữ liệu này ở phần dưới.
 
-## File Storage
+### A.File Storage
 
 Khả năng lưu trữ dữ liệu trong tệp là yếu tố cốt lõi của bất kỳ hệ thống máy tính nào. Các tệp có thể được lưu trữ trong các hệ thống tệp cục bộ trên đĩa cứng của máy tính cá nhân của bạn và trên các phương tiện di động như ổ USB; nhưng trong hầu hết các tổ chức, các tệp dữ liệu quan trọng được lưu trữ tập trung trong một số loại hệ thống lưu trữ tệp dùng chung. Càng ngày, vị trí lưu trữ trung tâm đó càng được lưu trữ trên đám mây, cho phép lưu trữ hiệu quả về chi phí, an toàn và đáng tin cậy cho khối lượng lớn dữ liệu.
 
@@ -224,7 +224,7 @@ Một vài cách tối ưu định dạng file phổ biến gồm có Avro, ORC,
 
 - Parquet là một định dạng dữ liệu cột khác. Nó được tạo ra bởi Cloudera và Twitter. Tệp Parquet chứa các nhóm hàng. Dữ liệu cho mỗi cột được lưu trữ cùng nhau trong cùng một nhóm hàng. Mỗi nhóm hàng chứa một hoặc nhiều phần dữ liệu.  Tệp Parquet bao gồm metadata mô tả tập hợp các hàng được tìm thấy trong mỗi đoạn. Một ứng dụng có thể sử dụng metadata này để nhanh chóng xác định vị trí đúng phân đoạn cho một tập hợp các hàng nhất định và truy xuất dữ liệu trong các cột được chỉ định cho các hàng này. Parquet chuyên lưu trữ và xử lý các kiểu dữ liệu lồng nhau một cách hiệu quả. Nó hỗ trợ các chương trình nén và mã hóa rất hiệu quả.
 
-## Databases
+### B.Databases
 
 Cơ sở dữ liệu được sử dụng để xác định một hệ thống trung tâm mà trong đó dữ liệu có thể được lưu trữ và truy vấn. Một cách đơn giản hơn, hệ thống file mà các file được lưu trữ trên đó cũng được xem là 1 loại CSDL; nhưng khi chúng ta dùng thuật ngữ này trong ngữ cảnh dữ liệu chuyên nghiệp, chúng ta thường muốn nói đến một hệ thống chuyên dụng để quản lý các bản ghi dữ liệu hơn là các tệp. 
 
@@ -255,4 +255,54 @@ Có 4 loại Non-relational databases thường được sử dụng.
 - Graph DB : lưu trữ các thực thể dưới dạng các nodes và các links để xác định mối quan hệ giữa chúng.
 
 ![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/graph.png)
+
+# Chương III: xử lý dữ liệu giao dịch
+
+Một hệ thống xử lý dữ liệu giao dịch là thứ mà hầu hết mọi người xem là chức năng chính của máy tính kinh doanh. Hệ thống giao dịch ghi lại các giao dịch gói gọn các sự kiện cụ thể mà tổ chức muốn theo dõi. Đó có thể là một giao dịch tài chính, ví dụ như hoạt động chuyển tiền giữa các tài khoản trong hệ 1 hệ thống ngân hàng, hay một phần của hệ thống bán lẻ, theo dõi các khoản thanh toán cho hàng hoá hay dịch vụ từ các khách hàng. Hãy coi một giao dịch như một đơn vị công việc nhỏ, rời rạc. 
+
+Các hệ thống giao dịch thường có khối lượng lớn, đôi khi phải xử lý hàng triệu giao dịch trong một ngày. Dữ liệu được xử lý phải có thể được truy cập rất nhanh. Công việc được thực hiện bởi các hệ thống giao dịch thường được gọi là Xử lý giao dịch trực tuyến [(OLTP)](https://viblo.asia/p/oltp-va-olap-co-gi-khac-nhau-maGK786BZj2). 
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/transactional-processing.png)
+
+Các giải pháp OLTP dựa trên một hệ thống CSDL, nơi mà việc lưu trữ dữ liệu tối ưu cho cả hoạt động đọc và ghi để hỗ trợ cho khối lượng các công việc giao dịch, mà ở đó, các bảng ghi dữ liệu được tạo, truy xuất, cập nhật và xoá (thường được gọi là hoạt động CRUD). Các hoạt động này được áp dụng theo giao dịch, theo các để đảm bảo tính toàn vẹn của cũa dữ liệu được lưu trữ trong CSDL. Để thực hiện được điều này, OLTP thực thi các giao dịch hỗ trợ gọi là ACID, thuộc tính này gồm có:
+
+-Atomicity (Tính nguyên tố): mỗi giao dịch sẽ được xem là 1 đơn vị duy nhất mà nó thành công hoàn toàn hoặc thất bại hoàn toàn. Ví dụ: một giao dịch liên quan đến việc chuyển tiền từ một tài khoản và ghi số tiền tương tự vào 1 tài khoản khác, thì giao dịch này phải hoàn thành cả 2 hoạt động trên. Nếu một trong hai không thể hoàn thành thì hoạt động còn lại phải thất bại.
+
+-Consistency (Tính nhất quán): các giao dịch chỉ có thể đưa dữ liệu trong CSDL từ một trạng thái hợp lệ sang trạng thái hợp lệ khác. Tiếp tục ví dụ ở trên, trạng thái hoàn thành của giao dịch phải phản ảnh được việc chuyển tiền từ tài khoản này sang 1 tài khoản khác.
+
+-Isolate (Tính độc lập): Một giao dịch đang thực thi và chưa được xác nhận phải bảo đảm tách biệt khỏi các giao dịch khác. Ví dụ: trong khi giao dịch chuyển tiền từ tài khoản này sang tài khoản khác đang trong quá trình thực hiện, một giao dịch khác thực hiện kiểm tra số dư không thể truy xuất giá trị từ một tài khoản phản ảnh số dư diễn ra trước khi chuyển và giá trị choo một tài khoản khác phản ảnh số dư diễn ra trước khi chuyển
+
+-Durability (Tính bền vững): Khi một giao dịch hoàn thành, nó sẽ duy trì trạng thái hoàn thành. Sau khi giao dịch chuyển khoản hoàn tất, số dư tài khoản được sửa đổi vẫn được duy trì cho nên ngay cả khi hệ thống CSDL bị tắt, giao dịch hoàn thành này vẫn được phản ánh khi hệ thống được bật lại.
+
+Hệ thống OLTP thường được sử dụng để hỗ trợ các ứng dụng trực tiếp xử lý dữ liệu kinh doanh - thường được gọi là ứng dụng dòng doanh nghiệp (LOB). 
+
+# Chương IV: Xử lý dữ liệu phân tích 
+
+Analytical data processing thường sử dụng các hệ thống read-only (hoặc read-mostly) lưu trữ khối lượng lớn các dữ liệu mang tính lịch sử hay các số liệu kinh doanh.Việc xử lý có thể dựa trên 1 bản snapshot dữ liệu tại một điểm thời gian nhất định, hoặc một loạt các snapshot.
+
+Các chi tiết cụ thể cho một hệ thống xử lý phân tích có thể khác nhau giữa các giải pháp, nhưng kiến trúc chung cho các giải pháp phân tích ở quy mô doanh nghiệp thì thường có mô hình như sau:
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/analytical-processing.png)
+
+1. Các files có thể được lưu ở các [data lake](https://vietnix.vn/data-lake-la-gi/) trung tâm để phân tích.
+
+2. Một quá trình extract, transform và load (ETL) thực hiện sao chép dữ liệu từ các files và các CSDL [OLTP](https://viblo.asia/p/oltp-va-olap-co-gi-khac-nhau-maGK786BZj2) vào data warehouse để tối ưu cho hoạt động đọc. Thông thường, các lược đồ của data warehouse thì dựa trên các bảng dữ kiện chứa các số liệu mà bạn muốn phân tích (ví dụ: số tiền hàng), với các bảng thứ nguyên có liên quan đại diện cho các thực thể mà bạn muốn đo lường chúng (ví dụ: khách hàng hoặc sản phẩm).
+
+3. Dữ liệu trong data warehouse có thể được tổng hợp và load vào trong mô hình phân tích trực tuyến (OLAP) hoặc các cube. Các số liệu tổng hợp (số đo) từ các bảng dữ kiện thì được tính toán cho các giao điểm của các thứ nguyên từ bảng thứ nguyên. Ví dụ: doanh thu bán hàng có thể được tính theo ngày, khách hàng và sản phẩm.
+
+4. Dữ liệu trong data lake, data warehouse và các mô hình phân tích có thể được truy xuất cho việc tạo báo cáo, visualizations và dashboards.
+
+- Data lake là một khái niệm phổ biến trong xử lý phân tích dữ liệu hiện đại, nơi phải thu thập và phân tích một khối lượng lớn dữ liệu dựa trên files.
+
+- Data warehouse là một cách thiết lập để lưu trữ dữ liệu trong một lược đồ quan hệ được tối ưu hóa cho các hoạt động đọc - chủ yếu là các truy vấn cho việc tạo báo cáo và hiển thị dữ liệu. Lược đồ data warehouse có thể yêu cầu một số dữ liệu không chuẩn hoá trong nguồn dữ liệu OLTP (đưa vào một số trùng lặp để làm cho các truy vấn thực hiện nhanh hơn).
+
+- Một mô hình OLAP là một kiểu lưu trữ dữ liệu tổng hợp dưới dạng lược đồ quan hệ để tối ưu hoá cho các công việc phân tích. Tổng hợp dữ liệu được dựa trên các thứ nguyên ở các cấp khác nhau, cho phép bạn đi sâu vào / xem chi tiết để xem các tổng hợp ở nhiều cấp phân cấp; ví dụ để xem tổng doanh thu theo khu vực, theo thành phố, hay cho một địa chỉ riêng lẻ. Vì dữ liệu OLAP được tổng hợp trước nên có thể chạy nhanh chóng các truy vấn để trả về các bản tóm tắt mà nó chứa.
+
+Các kiểu người dùng khác nhau có thể thực hiện công việc phân tích dữ liệu ở các giai đoạn khác nhau của toàn bộ kiến ​​trúc tổng thể. Ví dụ:
+
+- Các nhà data scientists thì có thể làm việc trực tiếp với các files trong data lake để khám phá và lập mô hình dữ liệu.
+
+- Data Analysts thì có thể truy vấn các bảng một cách trực tiếp trong data warehouse để tạo ra các báo cáo linh hoạt và visualizations/
+
+- Business thì có thể sử dụng dữ liệu được tổng hợp trước trong mô hình phân tích ở dạng báo cáo hoặc ở trang dashboards.
 
