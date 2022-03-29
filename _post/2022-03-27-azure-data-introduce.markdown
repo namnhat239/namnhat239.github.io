@@ -255,3 +255,4 @@ Có 4 loại Non-relational databases thường được sử dụng.
 - Graph DB : lưu trữ các thực thể dưới dạng các nodes và các links để xác định mối quan hệ giữa chúng.
 
 ![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/graph.png)
+
