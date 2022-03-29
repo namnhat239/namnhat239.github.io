@@ -306,3 +306,16 @@ Các kiểu người dùng khác nhau có thể thực hiện công việc phân
 
 - Business thì có thể sử dụng dữ liệu được tổng hợp trước trong mô hình phân tích ở dạng báo cáo hoặc ở trang dashboards.
 
+# TỔNG KẾT
+
+Dữ liệu được xem là cốt lõi của các ứng dụng phần mềm và các giải pháp. Nó có thể được hiển ở nhiều định dạng khác nhau , lưu trong files và trong CSDL, và sử dụng để ghi lại các giao dịch hay hỗ trợ cho việc báo cáo, phân tích.
+
+Qua các khái niệm đã đề cập ở trên, chúng ta đã có thể có các kiến thức căn bản về 
+
+- Xác định các định dạng dữ liệu phổ biến.
+- Các tuỳ chọn lưu dữ liệu trong files.
+- Các tuỳ chọn lưu dữ liệu trong Database.
+- Đặc điểm các giải pháp xử lý dữ liệu giao dịch.
+- Đặc điểm của các giải pháp xử lý dữ liệu phân tích.
+
+Bạn đọc có thể tìm kiếm thêm các tài liệu tại trang của a Microsoft : [Azure Data Fundamentals](https://docs.microsoft.com/en-us/learn/certifications/azure-data-fundamentals/)
