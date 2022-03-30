@@ -2,7 +2,7 @@
 layout: post
 title:  Explore data roles and services
 date:   2022-03-30
-image:  azure_1.png
+image:  explore-roles-responsibilities-world-of-data.svg
 tags:   Azure, Data-Analysis
 ---
 
@@ -67,7 +67,7 @@ Một vài dịch vụ đám mây phổ biến dùng cho dữ liệu được m�
 
 ## 1.Azure SQL
 
-![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azure-sql.png)
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-sql.png)
 
 Azure SQL là tên chung của một nhóm các giải pháp CSDL quan hệ dữ trên engine CSDL MSSQL. Azure SQL bao gồm:
 
@@ -85,7 +85,7 @@ Các data analysts có thể truy vấn CSDL Azure SQL trực tiếp để tạo
 
 ## 2.Azure Database for open-source relational databases
 
-![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azure-database.png)
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-database.png)
 
 Azure bao gồm các dịch vụ quản lý cho các hệ thống CSDL quan hệ mã nguồn mở, bao gồm:
 
@@ -99,9 +99,8 @@ Như với hệ thống Azure SQL DB, cơ sở dữ liệu quan hệ nguồn m�
 
 ## 3.Azure Cosmos DB
 
-![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/cosmos-db.png)
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/cosmos-db.png)
 
 Azure Cosmos DB là hệ thống cơ sở dữ liệu phi quan hệ (NoSQL) quy mô toàn cầu hỗ trợ cho lập trình API, cho phép bạn lưu trữ và quản lý dữ liệu dưới dạng tài liệu JSON, cặp key-value, column-families, and graphs.
 
 Trong một số tổ chức, các phiên bản Cosmos DB có thể được cung cấp và quản lý bởi Database administrator, mặc dù thường các nhà phát triển phần mềm quản lý lưu trữ dữ liệu NoSQL như một phần của kiến trúc ứng dụng tổng thể. Các data engineers thường cần tích hợp các nguồn dữ liệu Cosmos DB vào các giải pháp phân tích doanh nghiệp hỗ trợ việc lập mô hình và báo cáo bởi các nhà data analyst.
- 
