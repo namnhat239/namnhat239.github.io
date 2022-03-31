@@ -24,19 +24,19 @@ Mục tiêu của tài liệu gồm:
 
 # Chương I: Khám phá các vai trò công việc trong thế giới data
 
-Có rất nhiều vai trò liên quan đến việc quản lý, kiểm soát và sử dụng dữ liệu. Một vài vai trò thì theo định hướng kinh doánh, một số khác thì thiên về kỹ thuật nhiều hơn, một số lại tập trung vào việc nghiên cứu, một số lại là sự kết hợp của các khía cạnh khác nhau của việc quản lý dữ liệu. Tổ chức của bạn có thể định nghĩa ra nhiều vai trò khác nhau, hoặc cho chúng những cái tên khác nhau, truy nhiên,  những vai trò được mô tả trong phần này sẽ bao gồm các sự phân chia nhiêm vụ và trách nhiệm phổ biến nhất thường thấy.
+Có rất nhiều vai trò liên quan đến việc quản lý, kiểm soát và sử dụng dữ liệu. Một vài vai trò thì theo định hướng kinh doanh, một số khác thì thiên về kỹ thuật nhiều hơn, một số lại tập trung vào việc nghiên cứu, một số lại là sự kết hợp của các khía cạnh khác nhau của việc quản lý dữ liệu. Tổ chức của bạn có thể định nghĩa ra nhiều vai trò khác nhau, hoặc cho chúng những cái tên khác nhau, truy nhiên,  những vai trò được mô tả trong phần này sẽ bao gồm các sự phân chia nhiêm vụ và trách nhiệm phổ biến nhất thường thấy.
 
 Ba vai trò chính trong công việc liên quan đến dữ liệu trong hầu hết các tỏ chức gồm có:
 
-- Database administrators: quản lý CSDL, cấp quyền cho người dùng, lưu trữ các bản sao backup và hồi phục khi có sự cố.
+- Database administrators: quản lý CSDL, cấp quyền cho người dùng, lưu trữ các bản sao backup và khôi phục khi có sự cố.
 
 - Data engineers: quản lý cơ sở hạ tầng và các quy trình tích hợp dữ liệu trong tổ chức, áp dụng các quy trình làm sạch dữ liệu, xác định các quy tắc quản trị dữ liệu, triển khai các đường truyền luân chuyễn dữ liệu giữa các hệ thống(pipelines)
 
-- Data analysts: khám phá và phân tích dữ liệu để tạo hình hoá và các biểu đồ cho phép tổ chức đưa ra viết định sáng suốt.
+- Data analysts: khám phá và phân tích dữ liệu để trực quan hoá và các biểu đồ cho phép tổ chức đưa ra viết định sáng suốt.
 
 **Note**
 
-Vai trò công việc được phân loại khác nhau dựa trên nhiệm vụ và trách nhiệm. Trong một vài tổ chức, một cá nhân vẫn có thể thực hiện nhiều vai trò, vì vậy trong vai trò là một database administrator họ vẫn có thể cung cấp CSDL giao dịch và sau đó với vai trò là mot65data engineer, họ có thể tạo một pipeline để chuyển dữ liệu từ CSDL đến data warehouse để xử lý.
+Vai trò công việc được phân loại khác nhau dựa trên nhiệm vụ và trách nhiệm. Trong một vài tổ chức, một cá nhân vẫn có thể thực hiện nhiều vai trò, vì vậy trong vai trò là một database administrator họ vẫn có thể cung cấp CSDL giao dịch và sau đó với vai trò là một engineer, họ có thể tạo một pipeline để chuyển dữ liệu từ CSDL đến data warehouse để xử lý.
 
 ## 1.Database Administrator
 
