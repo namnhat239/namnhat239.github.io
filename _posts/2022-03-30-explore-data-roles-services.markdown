@@ -175,7 +175,7 @@ Data engineers có thể dùng Azure HDInsight để hỗ trợ các công việ
 
 ## 8.Azure Stream Analytics
 
-![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/hstream-analytics.png)
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/stream-analytics.png)
 
 Azure Stream Analytics là một công cụ xử lý luồng theo thời gian thực ghi lại luồng dữ liệu từ đầu vào, áp dụng truy vấn để trích xuất và thao tác dữ liệu từ luồng đầu vào và ghi kết quả vào đầu ra để phân tích hoặc xử lý thêm. 
 
