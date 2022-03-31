@@ -104,3 +104,103 @@ Như với hệ thống Azure SQL DB, cơ sở dữ liệu quan hệ nguồn m�
 Azure Cosmos DB là hệ thống cơ sở dữ liệu phi quan hệ (NoSQL) quy mô toàn cầu hỗ trợ cho lập trình API, cho phép bạn lưu trữ và quản lý dữ liệu dưới dạng tài liệu JSON, cặp key-value, column-families, and graphs.
 
 Trong một số tổ chức, các phiên bản Cosmos DB có thể được cung cấp và quản lý bởi Database administrator, mặc dù thường các nhà phát triển phần mềm quản lý lưu trữ dữ liệu NoSQL như một phần của kiến trúc ứng dụng tổng thể. Các data engineers thường cần tích hợp các nguồn dữ liệu Cosmos DB vào các giải pháp phân tích doanh nghiệp hỗ trợ việc lập mô hình và báo cáo bởi các nhà data analyst.
+
+## 3.Azure Storage
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-storage.png)
+
+Azure Storage là một dịch vụ chính của Azure cho phép bạn lưu dữ liệu trong:
+
+- Blob containers - khả năng mở rộng, hiệu quả về chi phí cho các tệp nhị phân.
+
+- File shares: chia sẻ file qua mạng như bạn thường thấy trong các mạng doanh nghiệp.
+
+- Tables =- lưu trữ dạng key -value cho các ứng cần đọc và ghi dữ liệu nhanh chóng.
+
+Data engineers dùng Azure Storage để tổ chức các data lakes - lưu trữ dạng blob với không gian phân cấp cho phép các tệp được sắp xếp trong các thư mục trong hệ thống tệp phân tán. 
+
+## 4. Azure Data Factory
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-data-factory.png)
+
+Azure Data Factory là 1 dịch vụ của Azure cho phép người dùng định nghĩa và lên lịch cho các data pipelines thực hiện hoạt động chuyển đổi và truyên dữ liệu. Bạn có thể tích hợp pipelines với các dịch vụ Azure khác, cho phép bạn nhập dữ liệu từ cloud, xử lý dữ liệu bằng cách sử dụng các tính toán dựa trên cloud, và lưu kết quả vào trong các kho lưu trữ dữ liễu khác.
+
+Azure Data Factory được dùng với data engineer để xây dựng các giải pháp ETL để đưa vào kho lưu trữ dữ liệu phân tích với dữ liệu từ các hệ thống giao dịch trong toàn tổ chức. 
+
+## 5.Azure Synapse Analytics
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/Azure-Synapse.png)
+
+Azure Synapse Analytics là một giải pháp phân tích dữ liệu toàn diện, thống nhất, nó cung cung một giao diện dịch vụ độc lâp cho nhiều khả năng phân tích bao gồm:
+
+- Pipelines: cùng dựa trên công nghệ của Azure Data Factory.
+
+- SQL - một SQL DB engine có khả năng co dãn, tối ưu cho các luồng việc của data warehouse.
+
+- Apache Spark: một hệ thống xử lý dữ liệu mã nguồn mở hỗ trợ nhiều ngôn ngữ và APIs, bao gồm Java, Scala, Python, and SQL.
+
+- Azure Synapse Data Explorer: Giải pháp phân tích dữ liệu hiệu suất cao, tối ưu cho các truy vấn thời gian thực cho việc log và truy vấn từ xa, sử dụng Kusto Query Language (KQL).
+
+Các data engineers có thể dùng Azure Synapse Analytics để tạo một giải pháp thống nhất cho việc phân tích dữ liệu bao gồm việc tích hợp các pipelines, data warehouse storage, và data lake storage trong một dịch vụ độc lâp.
+
+Data analysts có thể dùng SQL and Spark pools thông qua một notebooks để khám phá và phân tích dữ liệu, đồng thời tận dụng khả năng tích hợp với các dịch vụ như Azure Machine Learning và Microsoft Power BI để tạo mô hình dữ liệu và trích xuất thông tin chi tiết từ dữ liệu. 
+
+## 6.Azure Databricks
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-databricks.png)
+
+Azure Databricks là phiên bản tích hợp Azure của nền tảng Databricks phổ biến, kết hợp nền tảng xử lý dữ liệu Apache Spark với ngữ nghĩa cơ sở dữ liệu SQL và giao diện quản lý tích hợp cho phép phân tích dữ liệu quy mô lớn.
+
+Data engineers có thể sử dụng kỹ năng Databricks và Spark hiện có để tạo kho dữ liệu phân tích trong Azure Databricks.
+
+Data Analysts có thể dùng native notebook hỗ trợ trong Azure Databricks để truy vấn và trực quan hoá dữ liệu để dễ sử dụng trên giao diện web.
+
+## 7.Azure HDInsight
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/hdinsight.png)
+
+Azure HDInsight là 1 dịch vụ Azure cung cấp các cụm được lưu trữ trên Azure cho các công nghệ xử lý dữ liệu lớn nguồn mở Apache phổ biến, bao gồm:
+
+- Apache Spark: Hệ thống xử lý dữ liệu phân tán hỗ trợ nhiều ngôn ngữ lập trình và APIs, bao gồm Java, Scala, Python, và SQL.
+
+- Apache Hadoop: Một hệ thống phân tán sử dụng MapReduce để xử lý lượng lớn dữ liệu một cách hiệu quả giữa các nodes cluster. Các công việc MapReduce có thể được viết bằng Java hoặc được trừu tượng hóa bởi các interface như Apache Hive - một API dựa trên SQL chạy trên Hadoop. 
+
+-Apache HBase: một hệ thống mã nguồn mở để lưu trữ và truy vấn dữ liệu NoSQL quy mô lớn. 
+
+- Apache Kafka: 1 message broker để xử lý các luồng dữ liệu.
+
+- Apache Storm:1 hệ thống nguồn mở cho xử lý thời gian thực thông qua các topology của spouts and bolts.
+
+Data engineers có thể dùng Azure HDInsight để hỗ trợ các công việc phân tích big data dựa trên nhiều công nghệ mã nguồn mở.
+
+## 8.Azure Stream Analytics
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/hstream-analytics.png)
+
+Azure Stream Analytics là một công cụ xử lý luồng theo thời gian thực ghi lại luồng dữ liệu từ đầu vào, áp dụng truy vấn để trích xuất và thao tác dữ liệu từ luồng đầu vào và ghi kết quả vào đầu ra để phân tích hoặc xử lý thêm. 
+
+Data engineers có thể kết hợp Azure Stream Analytics vào các kiến trúc phân tích dữ liệu để thu thập dữ luồng dữ liệu truyền vào để nhập vào kho dữ liệu phân tích hoặc để trực quan hóa theo thời gian thực. 
+
+## 9.Azure Data Explorer
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/azure-data-explorer.png)
+
+Azure Purview cung cấp giải pháp cho khả năng khám phá và quản trị dữ liệu trên toàn doanh nghiệp. Bạn có thể sử dụng Azure Purview để tạo bản đồ dữ liệu của mình và theo dõi dòng dữ liệu trên nhiều nguồn dữ liệu và hệ thống, cho phép bạn tìm thấy dữ liệu đáng tin cậy để phân tích và báo cáo. 
+
+Data engineers có thể sử dụng .zure Purview để thực thi quản trị dữ liệu trong toàn doanh nghiệp và đảm bảo tính toàn vẹn của dữ liệu được sử dụng để hỗ trợ các công việc phân tích.
+
+## 10.Microsoft Power BI
+
+![](https://raw.githubusercontent.com/namnhat239/namnhat239.github.io/main/images/azue-job/power-bi.png)
+
+Microsoft Power BI là một nền tảng để lập mô hình và báo cáo dữ liệu phân tích mà các nhà phân tích dữ liệu có thể sử dụng để tạo và chia sẻ tương tác với dữ liệu trực quan hoá. Báo cáo Power BI có thể được tạo bằng cách sử dụng ứng dụng Power BI Desktop, báo cáo được xuất bản và phân phối thông qua các báo cáo và ứng dụng dựa trên web trong dịch vụ Power BI, cũng như trong ứng dụng Power BI dành cho thiết bị di động. 
+
+# Summary
+
+Quản lý và làm việc với dữ liệu là một trong những kỹ năng đặc biệt đòi hỏi có sử hiểu biết của nhiều công nghệ khác nhau. Hầu hết các tổ chức xác định vai trò công việc cho các nhiệm vụ khác nhau chịu trách nhiệm quản lý dữ liệu. 
+
+Qua bài viết này, chúng ta đã có thể có được các thông tin về:
+
+- Các vai trò nghiệp vụ dữ liệu phổ biến.
+
+- Các dịch vụ cloud được dùng bởi các chuyên gia dữ liệu.
