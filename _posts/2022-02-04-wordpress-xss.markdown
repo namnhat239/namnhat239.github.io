@@ -2,8 +2,8 @@
 layout: post
 title:  Wordpress Stored XSS CVE-2022-21662
 date:   2022-04-02
-image:  explore-roles-responsibilities-world-of-data.svg
-tags:   Analyze, wordpress
+image:  wp-2022-21662.png
+tags:   analyze, wordpress
 ---
 
 * TOC
