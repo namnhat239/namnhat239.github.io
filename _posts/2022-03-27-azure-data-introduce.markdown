@@ -3,7 +3,7 @@ layout: post
 title:  Microsoft Azure Data Fundamentals - Explore core data concept
 date:   2022-03-27
 image:  azure_1.png
-tags:   Azure, Data-Analysis
+tags:   Azure Data-Analysis
 ---
 
 * TOC

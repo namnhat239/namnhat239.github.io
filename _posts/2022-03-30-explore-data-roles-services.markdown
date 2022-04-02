@@ -3,7 +3,7 @@ layout: post
 title:  Explore data roles and services
 date:   2022-03-30
 image:  explore-roles-responsibilities-world-of-data.svg
-tags:   Azure, Data-Analysis
+tags:   Azure Data-Analysis
 ---
 
 * TOC
