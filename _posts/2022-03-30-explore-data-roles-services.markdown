@@ -50,7 +50,7 @@ Một data engineer sẽ phối hợp với các bên liên quan để thiết k
 
 Họ cũng chịu trách nhiệm đảm bảo quyền riêng tư của dữ liệu được duy trì trên cloud và on-premises đến các kho lưu trữ đám mây. Họ đảm nhận việc quản lý và giám sát các pipelines để đảm bảo rằng dữ liệu được tải đi như mong đợi.
 
-Data Analyst
+## 3.Data Analyst
 
 Một Data Analyst cho phép các doanh nghiệp tối đa hóa giá trị của tài sản dữ liệu của họ. Họ chịu trách nhiệm khám phá dữ liệu để xác định xu hướng và mối quan hệ, thiết kế và xây dựng các mô hình phân tích, đồng thời kích hoạt khả năng phân tích nâng cao thông qua các báo cáo và hình ảnh hóa.
 
