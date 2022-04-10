@@ -206,7 +206,7 @@ Khi một sản phẩm cần được đổi tên, bạn có thể thực hiện
 EXEC RenameProduct 201, 'Spanner';
 ```
 
-# 3. Index là gì?
+## 3. Index là gì?
 
 Indexing giúp bạn tìm kiếm dữ liệu trong 1 bảng. Hãy nghĩ về một chỉ mục trên một bảng giống như một mục lục ở cuối một cuốn sách. Mục lục sách chứa một tập hợp các tài liệu tham khảo đã được sắp xếp, với các trang mà mỗi tài liệu tham khảo xuất hiện trên đó. Khi bạn muốn tìm tham chiếu đến một mục trong sách, bạn tra cứu nó thông qua mục lục. Bạn có thể sử dụng số trang trong chỉ mục để chuyển trực tiếp đến các trang chính xác trong sách. Nếu không có chỉ mục, bạn có thể phải đọc toàn bộ cuốn sách để tìm tài liệu tham khảo mà bạn đang tìm kiếm.
 
