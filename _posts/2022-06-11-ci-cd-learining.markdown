@@ -2,7 +2,7 @@
 layout: post
 title:  CI/CD with Github action and SonarQube
 date:   2022-04-02
-image:  
+image:  cicd.png
 tags:   sonar github action ci/cd
 ---
 
