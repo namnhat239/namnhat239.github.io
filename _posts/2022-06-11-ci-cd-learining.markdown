@@ -2,7 +2,7 @@
 layout: post
 title:  CI/CD with Github action and SonarQube
 date:   2022-04-02
-image:  
+image:  https://res.cloudinary.com/practicaldev/image/fetch/s--AxVIC0I3--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mzxsak79ywsgqjv54x0r.png
 tags:   sonar github action ci/cd
 ---
 
