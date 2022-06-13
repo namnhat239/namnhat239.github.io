@@ -2,8 +2,10 @@
 layout: post
 title:  CI/CD with Github action and SonarQube
 date:   2022-04-02
+<<<<<<< HAD
 image:  cicd.png
 =======
+>>>>>>> 6aed9904e8c61dcaf443fa195ad59b4db6bd8471
 tags:   sonar github action ci/cd
 ---
 
@@ -19,7 +21,7 @@ tags:   sonar github action ci/cd
 --> quá trình tích hợp và triển khai nhanh và liên tục.<br/>
 --> CI/CD là quá trình tự động thực hiện các quá trình build, test, release, deploy khi có các trigger như commit/merge code lên một branch định sẵn hoặc có thể là tự động chạy theo một lịch cố định.
 
-## II. GHithub Actions
+## II. Github Actions
 Github actions được sinh ra để hỗ trợ việc tự động hóa các tác vụ trong vòng đời của một phần mềm. Git actions hoạt động theo hướng sự kiện, nghĩa là nó sẽ thực hiện một loạt commands đã được định nghĩa sẵn khi có một sự kiện được xảy ra. Ví dụ như, bạn có thể cấu hình để mỗi khi có người tạo một mergers request lên một repository nào đó hệ thống sẽ tự động run commands để run các unit test case của bạn.
 
 Cấu hình Github Actions `Workflow` được kích hoạt khi có 1 event xảy ra trong repo Github như: Pull request lên branch, tạo issue. Một `workflow` thì có thể có 1 hoặc nhiều job chạy theo tuần tự hoặc song song. Mỗi job sẽ chạy trong 1 máy ảo riêng của nó, hay trong 1 container mà có 1 hoặc nhiều bước các tập lệnh do người dùng định nghĩa hoặc chạy 1 action. 
