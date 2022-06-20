@@ -141,4 +141,54 @@ Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứn
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/finish.jpg)
 7. Chạy Sonar Scanner và chờ kết quả hiển thị lên web thôi.
 
-###
+## II. Triển khai sonar trên github để audit source
+Phần này mình sẽ nói về cách mình tích hợp SonarQube để hỗ trợ công việc Audit source(0) thông qua github Actions và môi trường local để lấy kết quả, dùng 1 VPS làm trung gian. (lày do VPS yếu chứ ko chạy luôn sonar trên vps thì ok)
+
+Vì sao lại chọn Github thay vì để luôn source local?
+- Tối ưu hoá không gian trên máy tính :D.
+- Tận dụng đc tính automation của GitHub Actions.
+- Chưa nghĩ ra
+
+1. Tải và chạy Sonar ở Windows.
+2. Thực hiện  forward port VPS về web local của sonar
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/forward.png)
+3. Trên Sonar Web, tạo mới Project Scan Code với GitHub Actions
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/new_pj.png)
+4. Trên Repo Github, chúng ta tiến hành tạo 2 giá trị `SONAR_TOKEN` và `SONAR_HOST_URL` lần lượt như sau
+- Tại repo, chọn vào tab `Settings` -> `Secrets` -> `Actions` -> `New repository secret`:
+Nhập vào các thông tin:
+- Name: `SONAR_TOKEN`, Value: `Là token được gennerate ở bước 3` (nhấn nút `Generate a token`).
+Tạo thêm 1 cặp nữa cho `SONAR_HOST_URL`
+- Name: `SONAR_HOST_URL`, Value: `http://IP_VPS:9000`.
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/secret.png)
+5. Quay lại với giao diện web SonarQube trên local, nhấn chọn `Continue` để lấy nội dung file workflow có dạng như sau:
+
+```yml
+name: Build
+on:
+  push:
+    branches:
+      - <master> # or the name of your main branch
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      # If you wish to fail your job when the Quality Gate is red, uncomment the
+      # following lines. This would typically be used to fail a deployment.
+      # - uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+```
+
+- Chú ý ở dòng `branches`, thay thế bằng tên của branch mà bạn muốn Sonar scaner sẽ chạy khi trigger push được thực thi.
+- Quang8 file này lên `.github/workflows/`, việc cấu hình đến đây là hoàn tất, như vậy mỗi khi bạn push code lên git trên branch đã chỉ định, sonar scan sẽ tự động chạy và report sẽ được đẩy về ứng dụng web của bạn.
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/results.png)
