@@ -46,12 +46,13 @@ Hiện tại github Marketplace cũng cung cấp rất nhiều actions có sẵn
 ### 2.4 Runners
 1 Runner là 1 server dùng để chạy workflows khi mà chúng đc trigger. Mỗi runner có thể chạy 1 job độc lập trong 1 lần. GitHub cung cấp các môi trường runner gồm Ubuntu Linux, Microsoft Windows, macOS để chạy các workflows. Một runner luôn sẵn sàng lắng nghe các jobs, run một job tại một thời điểm, report process, logs và trả kết quả về cho GitHub. Nếu bạn cần một HĐH khác hay cần những cấu hình phần cứng đặc biệt, bạn cũng có thể tự host một cái runner riêng cho mình theo mô tả [sau](https://docs.github.com/en/actions/hosting-your-own-runners)
 
-### 3. Tạo 1 Workflow
+### 3. Tạo 1 Workflow:
 #### 3.1 Theo template có sẵn:
 - Chọn vào repo bạn muốn tạo workflow. Chọn vào tab `Actions`. Luc này github sẽ đưa ra cho các bạn các mẫu workflow đã được viết sẵn, Việc của bạn chỉ cần chọn cái bạn cần và sửa lại một vài tham số và sử dụng.
 #### 3.2 Tự viết
 1. Tại repo của mình, bạn tạo file yml tại `.github/workflows/` để lưu trữ các file workflow.
 2. Ở đây ví dụ mình sẽ tạo 1 file workflow có tên: `learn-github-actions.yml` với nội dung như sau:
+
 ```yml
 name: learn-github-actions
 on: [push]
@@ -66,6 +67,7 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
 ```
+
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/example.png)
 - Giải thích các dòng lệnh:
 1. `name: learn-github-actions`: Khai báo tên của workflow sẽ hiển thị trong tab Actions.
@@ -83,7 +85,7 @@ jobs:
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/result.png)
 ## III. SonarQube
 ### 3.1 Unit test?
-Đọc [here](https://topdev.vn/blog/unit-test-la-gi/)
+- Đọc [here](https://topdev.vn/blog/unit-test-la-gi/)
 ### 3.2 Code Coverage?
 - Độ phủ của Unit Test.
 Read [here](https://viblo.asia/p/gioi-thieu-khai-niem-test-coverage-c0c1c2-ORNZqgyq50n)
@@ -91,7 +93,7 @@ Read [here](https://viblo.asia/p/gioi-thieu-khai-niem-test-coverage-c0c1c2-ORNZq
 
 Nói nôm na SonaQube được dùng để phân tích code.
 
-<quote>SonarQube là một open source platform, được phát triển bởi SonarSource dành cho việc kiểm tra liên tục chất lượng code (code quality), review code một cách tự động để phát hiện ra các bugs, code smell, lỗ hổng bảo mật cho 25+ ngôn ngữ lập trình khác nhau. SonarQube hỗ trợ báo cáo duplicated code, coding standards, unit tests, code coverage, code complexity, comments, bugs, and security vulnerabilities. Việc đánh giá này sẽ dựa trên các rules theo mặc định của nó hoặc do người dùng đặt. Tập hợp nhiều rules sẽ tạo thành 1 [Quality Profiles](https://sonarqube.inria.fr/sonarqube/documentation/instance-administration/quality-profiles/). Danh sách các rule mặc định của SonarQube cho các ngôn ngữ có thể tìm thấy ở [đây](https://rules.sonarsource.com/)</quote> 
+<quote>SonarQube là một open source platform, được phát triển bởi SonarSource dành cho việc kiểm tra liên tục chất lượng code (code quality), review code một cách tự động để phát hiện ra các bugs, code smell, lỗ hổng bảo mật cho 25+ ngôn ngữ lập trình khác nhau. SonarQube hỗ trợ báo cáo duplicated code, coding standards, unit tests, code coverage, code complexity, comments, bugs, and security vulnerabilities. Việc đánh giá này sẽ dựa trên các rules theo mặc định của nó hoặc do người dùng đặt. Tập hợp nhiều rules sẽ tạo thành 1 [Quality Profiles](https://sonarqube.inria.fr/sonarqube/documentation/instance-administration/quality-profiles/). Danh sách các rule mặc định của SonarQube cho các ngôn ngữ có thể tìm thấy ở [đây](https://rules.sonarsource.com/) </quote> 
 
 Một số thứ mà SonarQube cung cấp cho người dùng gồm:
 
@@ -141,7 +143,7 @@ Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứn
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/finish.jpg)
 7. Chạy Sonar Scanner và chờ kết quả hiển thị lên web thôi.
 
-## II. Triển khai sonar trên github để audit source
+## IV. Triển khai sonar trên github để audit source
 Phần này mình sẽ nói về cách mình tích hợp SonarQube để hỗ trợ công việc Audit source(0) thông qua github Actions và môi trường local để lấy kết quả, dùng 1 VPS làm trung gian. (lày do VPS yếu chứ ko chạy luôn sonar trên vps thì ok)
 
 Vì sao lại chọn Github thay vì để luôn source local?
@@ -190,5 +192,5 @@ jobs:
 ```
 
 - Chú ý ở dòng `branches`, thay thế bằng tên của branch mà bạn muốn Sonar scaner sẽ chạy khi trigger push được thực thi.
-- Quang8 file này lên `.github/workflows/`, việc cấu hình đến đây là hoàn tất, như vậy mỗi khi bạn push code lên git trên branch đã chỉ định, sonar scan sẽ tự động chạy và report sẽ được đẩy về ứng dụng web của bạn.
+- Quăng file này lên `.github/workflows/`, việc cấu hình đến đây là hoàn tất, như vậy mỗi khi bạn push code lên git trên branch đã chỉ định, sonar scan sẽ tự động chạy và report sẽ được đẩy về ứng dụng web của bạn.
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/results.png)
