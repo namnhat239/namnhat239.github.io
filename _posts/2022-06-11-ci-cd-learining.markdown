@@ -46,10 +46,10 @@ Hiện tại github Marketplace cũng cung cấp rất nhiều actions có sẵn
 ### 2.4 Runners
 1 Runner là 1 server dùng để chạy workflows khi mà chúng đc trigger. Mỗi runner có thể chạy 1 job độc lập trong 1 lần. GitHub cung cấp các môi trường runner gồm Ubuntu Linux, Microsoft Windows, macOS để chạy các workflows. Một runner luôn sẵn sàng lắng nghe các jobs, run một job tại một thời điểm, report process, logs và trả kết quả về cho GitHub. Nếu bạn cần một HĐH khác hay cần những cấu hình phần cứng đặc biệt, bạn cũng có thể tự host một cái runner riêng cho mình theo mô tả [sau](https://docs.github.com/en/actions/hosting-your-own-runners)
 
-### 3. Tạo 1 Workflow:
-#### 3.1 Theo template có sẵn:
+### 3. Tạo 1 Workflow:<br>
+### 1.Theo template có sẵn:
 - Chọn vào repo bạn muốn tạo workflow. Chọn vào tab `Actions`. Luc này github sẽ đưa ra cho các bạn các mẫu workflow đã được viết sẵn, Việc của bạn chỉ cần chọn cái bạn cần và sửa lại một vài tham số và sử dụng.
-#### 3.2 Tự viết
+### 2. Tự viết
 1. Tại repo của mình, bạn tạo file yml tại `.github/workflows/` để lưu trữ các file workflow.
 2. Ở đây ví dụ mình sẽ tạo 1 file workflow có tên: `learn-github-actions.yml` với nội dung như sau:
 
@@ -84,12 +84,12 @@ jobs:
 - Kết quả chạy của workflow như sau:
 ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/result.png)
 ## III. SonarQube
-### 3.1 Unit test?
+### 1.Unit test?
 - Đọc [here](https://topdev.vn/blog/unit-test-la-gi/)
-### 3.2 Code Coverage?
+### 2.Code Coverage?
 - Độ phủ của Unit Test.
 Read [here](https://viblo.asia/p/gioi-thieu-khai-niem-test-coverage-c0c1c2-ORNZqgyq50n)
-### 3.3 SonarQube?
+### 3.SonarQube?
 
 Nói nôm na SonaQube được dùng để phân tích code.
 
@@ -103,7 +103,7 @@ Một số thứ mà SonarQube cung cấp cho người dùng gồm:
 - [**Issue**](https://docs.sonarqube.org/latest/user-guide/issues/): nôm na là Sonarqube sẽ tạo ra 1 issue khi có 1 vấn đề vi phạm các rule: vulnerability, bug, code smell.
 - [**Security Hotspots**](https://docs.sonarqube.org/latest/user-guide/security-hotspots/): Tìm các đoạn mã nhạy cảm có khả năng bị lỗi bảo mật cần xem xét lại ->> công việc audit tập trung vào tính năng này.
 
-### 3.4 How it work?
+### 4. How it work?
 
 ![Kiến trúc SonarQube](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/architecture.png)
 Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứng dụng web trực quan hoá kết quả này và hiển thị ra giao diện web.
@@ -117,7 +117,7 @@ Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứn
 3. Hỗ trợ nhiều plugin bao gồm ngôn ngữ, SCM, integration, authenticaion, quản trị.
 4. Có thể có 1 hoặc nhiều SonarScanners chạy trong Build/Continuous Integration Server để phân tich dự án.
 
-### 3.5 Cài đặt và cấu hình
+### 5. Cài đặt và cấu hình
 1. Cài đặt Java 11.
 2. Tải SonarQube Community tại url: https://www.sonarqube.org/success-download-community-edition/
 3. Unzip.
