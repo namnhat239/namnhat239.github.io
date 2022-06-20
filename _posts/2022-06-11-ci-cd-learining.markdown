@@ -26,7 +26,7 @@ Thành phần Actions:
 ### 2.1 Workflows
 1 Workflows là một process đc cấu hình tự động để chạy một hoặc nhiều jobs. Chúng ta sử dụng 1 file yaml trong repo để diễn giải cho 1 workflow, và nó sẽ chạy khi có 1 sự kiện xảy ra trong repo đó, hoặc theo một lịch trình, hoặc có thể chạy "bằng cơm".
 
-Workflow sẽ được đặt trong thư mục .github/workflows của 1 repo, và 1 repo thì có thể có nhiều workflows, một cái thì sẽ thực hiện một số công việc khác nhau. Ví dụ: bạn có thể có 1 Workflow để build và test các pull requests, một workflow khác để deloy ứng dụng mỗi khi tạo ra 1 bản release, và 1 workflow xử lý khi có ai đó tạo ra 1 issue.
+Workflow sẽ được đặt trong thư mục `.github/workflows` của 1 repo, và 1 repo thì có thể có nhiều workflows, một cái thì sẽ thực hiện một số công việc khác nhau. Ví dụ: bạn có thể có 1 Workflow để build và test các pull requests, một workflow khác để deloy ứng dụng mỗi khi tạo ra 1 bản release, và 1 workflow xử lý khi có ai đó tạo ra 1 issue.
 
 ### 2.2 Events
 Events là một hoạt động đặc biệt trong 1 repo để trigger cho workflow run. Ví dụ, bạn có thể cấu hình để workflow bắt đầu khi có một người nó đó push code hoặc tạo merger request lên branch develop, tạo issue. Bạn cũng có thể trigger 1 workflow chạy theo 1 lịch trình, thông qua [REST API](https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event) hay "bằng cơm".
@@ -46,6 +46,41 @@ Hiện tại github Marketplace cũng cung cấp rất nhiều actions có sẵn
 ### 2.4 Runners
 1 Runner là 1 server dùng để chạy workflows khi mà chúng đc trigger. Mỗi runner có thể chạy 1 job độc lập trong 1 lần. GitHub cung cấp các môi trường runner gồm Ubuntu Linux, Microsoft Windows, macOS để chạy các workflows. Một runner luôn sẵn sàng lắng nghe các jobs, run một job tại một thời điểm, report process, logs và trả kết quả về cho GitHub. Nếu bạn cần một HĐH khác hay cần những cấu hình phần cứng đặc biệt, bạn cũng có thể tự host một cái runner riêng cho mình theo mô tả [sau](https://docs.github.com/en/actions/hosting-your-own-runners)
 
+### 3. Tạo 1 Workflow
+#### 3.1 Theo template có sẵn:
+- Chọn vào repo bạn muốn tạo workflow. Chọn vào tab `Actions`. Luc này github sẽ đưa ra cho các bạn các mẫu workflow đã được viết sẵn, Việc của bạn chỉ cần chọn cái bạn cần và sửa lại một vài tham số và sử dụng.
+#### 3.2 Tự viết
+1. Tại repo của mình, bạn tạo file yml tại `.github/workflows/` để lưu trữ các file workflow.
+2. Ở đây ví dụ mình sẽ tạo 1 file workflow có tên: `learn-github-actions.yml` với nội dung như sau:
+```yml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+```
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/example.png)
+- Giải thích các dòng lệnh:
+1. `name: learn-github-actions`: Khai báo tên của workflow sẽ hiển thị trong tab Actions.
+2. `on: [push]`: chỉ định trigger cho workflows này. Ở ví dụ này sử dụng event `push`, nghĩa là workflow này sẽ chạy khi có ai đó thực hiện push/mergers a pull request. Nếu không khai báo gì thêm thì trigger này sẽ tác động tới tất cả các branch. Bạn có thể chỉ định branch bằng lệnh: `branches: -<name>`.
+3. `jobs`: Nhóm các jobs sẽ chạy trong workflow này:
+4. `check-bats-version:` Định nghĩa một job name là `check-bats-version`. Các key con sẽ định nghĩa các thuộc tính của job.
+5. `runs-on: ubuntu-latest`: Cấu hình runner ở đây là phiên bản Ubuntu mới nhất. Ở đây có nghĩa là các job này sẽ chạy trên môi trường virtual machine của GitHub.
+6. `steps`: Nhóm các công việc sẽ chạy trong `check-bats-version`. Mỗi thành phần dưới sẽ là 1 action hay shell script độc lập.
+7. `- uses: actions/checkout@v3`: Từ khoá `uses` chỉ định  rằng bước lày á sẽ chạy actions/checkout v3. Đây là 1 action nhằm kiểm tra repo của bạn trên runner, cho phép bạn chạy các scripts hay các actions khác đối với code(chẳng hạn như các tool build hay test). Tài liệu GitHub cũng khuyên dùng bạn nên chạy cái checkout action này mỗi khi bạn chạy 1 workflow trên repo.
+8. `uses: actions/setup-node@v3 \n with: node-version: '14' `: Cái step thì dùng action `actions/setup-node@v3` để cài Node js phiên bản 14, step này cũng add 2 lệnh `npm` và `node` vào PATH.
+9. `- run: npm install -g bats`: Từ khoá `run` chỉ định excute lệnh `npm install -g bats` trên runner - cài bats
+10. `run: bats -v`: Tương tự như trên, dòng lệnh này dùng để execute lệnh `bats -v` trên runner để check version.
+
+- Kết quả chạy của workflow như sau:
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/result.png)
 ## III. SonarQube
 ### 3.1 Unit test?
 Đọc [here](https://topdev.vn/blog/unit-test-la-gi/)
@@ -88,3 +123,22 @@ Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứn
 - On Windows, execute: `Path\to\sonarqube\bin\windows-x86-64\StartSonar.bat`
 - On other operating systems, as a non-root user execute:`/opt/sonarqube/bin/[OS]/sonar.sh console`
 
+![Giao diện SonarQube web](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/giao_dien.png)
+
+#### Tạo mới project:
+ 1. Trên góc phải màn hình chọn `Create Project` -> `Manually`.
+ 2. Điền tên và điểm chỉ:
+ ![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/name.png)
+3. Vì ở đây hướng dẫn dùng scan code local nên sẽ chọn mục Locally ở bước tiếp theo.
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/pick_one.png)
+4. Tạo key mới cho project, Key này sẽ dùng cho SonarScanner. Nhập tên key và bấm `Generate`.
+
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/genkey.jpg)
+
+5. Xong tiếp chọn loại ngôn ngữ, framework và OS  mà dự án bạn đang dùng để cho sonar scan.
+6. Sau khi hoàn thành các lựa chọn, ứng dụng web sẽ đưa ra câu lệnh và hướng dẫn cài đặt Sonar Scanner cho phép bạn phân tích dự án của mình. Link tải SonarScanner tại [đây](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)
+
+![](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/finish.jpg)
+7. Chạy Sonar Scanner và chờ kết quả hiển thị lên web thôi.
+
+###
