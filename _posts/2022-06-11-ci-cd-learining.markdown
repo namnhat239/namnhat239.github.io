@@ -48,3 +48,25 @@ Hiện tại github Marketplace cũng cung cấp rất nhiều actions có sẵn
 
 ### 2.4 Runners
 1 Runner là 1 server dùng để chạy workflows khi mà chúng đc trigger. Mỗi runner có thể chạy 1 job độc lập trong 1 lần. GitHub cung cấp các môi trường runner gồm Ubuntu Linux, Microsoft Windows, macOS để chạy các workflows. Một runner luôn sẵn sàng lắng nghe các jobs, run một job tại một thời điểm, report process, logs và trả kết quả về cho GitHub. Nếu bạn cần một HĐH khác hay cần những cấu hình phần cứng đặc biệt, bạn cũng có thể tự host một cái runner riêng cho mình theo mô tả [sau](https://docs.github.com/en/actions/hosting-your-own-runners)
+
+## III. SonarQube
+### 3.1 Unit test?
+Đọc [here](https://topdev.vn/blog/unit-test-la-gi/)
+### 3.2 Code Coverage?
+- Độ phủ của Unit Test.
+Read [here](https://viblo.asia/p/gioi-thieu-khai-niem-test-coverage-c0c1c2-ORNZqgyq50n)
+### 3.2 SonarQube?
+
+Nói nôm na SonaQube được dùng để phân tích code.
+
+<quote>SonarQube là một open source platform, được phát triển bởi SonarSource dành cho việc kiểm tra liên tục chất lượng code (code quality), review code một cách tự động để phát hiện ra các bugs, code smell, lỗ hổng bảo mật cho 25+ ngôn ngữ lập trình khác nhau. SonarQube hỗ trợ báo cáo duplicated code, coding standards, unit tests, code coverage, code complexity, comments, bugs, and security vulnerabilities. Việc đánh giá này sẽ dựa trên các rules theo mặc định của nó hoặc do người dùng đặt. Tập hợp nhiều rules sẽ tạo thành 1 Quality Profiles. Danh sách các rule mặc định của SonarQube cho các ngôn ngữ có thể tìm thấy ở [đây](https://rules.sonarsource.com/)</quote> 
+
+Một số thứ mà SonarQube cung cấp cho người dùng gồm:
+
+- [**SonarLine**](https://www.sonarlint.org/): là một IDE extensions hỗ trợ cho việc phát hiện và fix các vấn đề về secu và code quatity một cách nhanh chóng.
+- [**Quality Gates**](https://docs.sonarqube.org/latest/user-guide/quality-gates/): thực thi các policy về chất lượng code trong tổ chức bằng cách trả lời cho 1 câu hỏi duy nhất: Dự án của bạn đã sẵn sàng để release chưa?
+- [**Clean as You Code**](https://docs.sonarqube.org/latest/user-guide/clean-as-you-code/): cung cấp cách tiếp cận mới tới code quality giúp loại bỏ hướng tiếp cận truyền thống. Là 1 develop, bạn sẽ tập trung vào việc duy trì các tiêu chuẩn cao và chịu trách nhiệm cho các mã nguồn mới mà bạn đang làm việc.
+- [**Issue**](https://docs.sonarqube.org/latest/user-guide/issues/): nôm na là Sonarqube sẽ tạo ra 1 issue khi có 1 vấn đề vi phạm các rule: vulnerability, bug, code smell.
+- [**Security Hotspots**](https://docs.sonarqube.org/latest/user-guide/security-hotspots/): Tìm các đoạn mã nhạy cảm có khả năng bị lỗi bảo mật cần xem xét lại ->> công việc audit tập trung vào tính năng này.
+
+
