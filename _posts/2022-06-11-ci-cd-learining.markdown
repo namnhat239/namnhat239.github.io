@@ -52,11 +52,11 @@ Hiện tại github Marketplace cũng cung cấp rất nhiều actions có sẵn
 ### 3.2 Code Coverage?
 - Độ phủ của Unit Test.
 Read [here](https://viblo.asia/p/gioi-thieu-khai-niem-test-coverage-c0c1c2-ORNZqgyq50n)
-### 3.2 SonarQube?
+### 3.3 SonarQube?
 
 Nói nôm na SonaQube được dùng để phân tích code.
 
-<quote>SonarQube là một open source platform, được phát triển bởi SonarSource dành cho việc kiểm tra liên tục chất lượng code (code quality), review code một cách tự động để phát hiện ra các bugs, code smell, lỗ hổng bảo mật cho 25+ ngôn ngữ lập trình khác nhau. SonarQube hỗ trợ báo cáo duplicated code, coding standards, unit tests, code coverage, code complexity, comments, bugs, and security vulnerabilities. Việc đánh giá này sẽ dựa trên các rules theo mặc định của nó hoặc do người dùng đặt. Tập hợp nhiều rules sẽ tạo thành 1 Quality Profiles. Danh sách các rule mặc định của SonarQube cho các ngôn ngữ có thể tìm thấy ở [đây](https://rules.sonarsource.com/)</quote> 
+<quote>SonarQube là một open source platform, được phát triển bởi SonarSource dành cho việc kiểm tra liên tục chất lượng code (code quality), review code một cách tự động để phát hiện ra các bugs, code smell, lỗ hổng bảo mật cho 25+ ngôn ngữ lập trình khác nhau. SonarQube hỗ trợ báo cáo duplicated code, coding standards, unit tests, code coverage, code complexity, comments, bugs, and security vulnerabilities. Việc đánh giá này sẽ dựa trên các rules theo mặc định của nó hoặc do người dùng đặt. Tập hợp nhiều rules sẽ tạo thành 1 [Quality Profiles](https://sonarqube.inria.fr/sonarqube/documentation/instance-administration/quality-profiles/). Danh sách các rule mặc định của SonarQube cho các ngôn ngữ có thể tìm thấy ở [đây](https://rules.sonarsource.com/)</quote> 
 
 Một số thứ mà SonarQube cung cấp cho người dùng gồm:
 
@@ -66,4 +66,25 @@ Một số thứ mà SonarQube cung cấp cho người dùng gồm:
 - [**Issue**](https://docs.sonarqube.org/latest/user-guide/issues/): nôm na là Sonarqube sẽ tạo ra 1 issue khi có 1 vấn đề vi phạm các rule: vulnerability, bug, code smell.
 - [**Security Hotspots**](https://docs.sonarqube.org/latest/user-guide/security-hotspots/): Tìm các đoạn mã nhạy cảm có khả năng bị lỗi bảo mật cần xem xét lại ->> công việc audit tập trung vào tính năng này.
 
+### 3.4 How it work?
+
+![Kiến trúc SonarQube](https://github.com/namnhat239/namnhat239.github.io/raw/main/images/sonar/architecture.png)
+Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứng dụng web trực quan hoá kết quả này và hiển thị ra giao diện web.
+1. SonarQube Server sẽ đảm nhận 3 process chính:
+- **Web Server** dùng cho việc phát triển, quản lý các instance.
+- Search Server dựa trên **Elasticsearch**.
+- **Compute Engine Server** chịu trách nhiêm cho việc xử lý các báo cáo phân tích code và lưu trữ trong SonarQube DB.
+2. Một SonarQube DB dùng để lưu trữ:
+- Cấu hình của SonarQube instance.
+- Các bản snapshots của projects, view...
+3. Hỗ trợ nhiều plugin bao gồm ngôn ngữ, SCM, integration, authenticaion, quản trị.
+4. Có thể có 1 hoặc nhiều SonarScanners chạy trong Build/Continuous Integration Server để phân tich dự án.
+
+### 3.5 Cài đặt và cấu hình
+1. Cài đặt Java 11.
+2. Tải SonarQube Community tại url: https://www.sonarqube.org/success-download-community-edition/
+3. Unzip.
+4. Chạy
+- On Windows, execute: `Path\to\sonarqube\bin\windows-x86-64\StartSonar.bat`
+- On other operating systems, as a non-root user execute:`/opt/sonarqube/bin/[OS]/sonar.sh console`
 
