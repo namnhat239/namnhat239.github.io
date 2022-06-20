@@ -144,7 +144,7 @@ Code sẽ được các Sonar Scanner phân tích rồi sau đó sẽ có 1 ứn
 7. Chạy Sonar Scanner và chờ kết quả hiển thị lên web thôi.
 
 ## IV. Triển khai sonar trên github để audit source
-Phần này mình sẽ nói về cách mình tích hợp SonarQube để hỗ trợ công việc Audit source(0) thông qua github Actions và môi trường local để lấy kết quả, dùng 1 VPS làm trung gian. (lày do VPS yếu chứ ko chạy luôn sonar trên vps thì ok)
+Phần này mình sẽ nói về cách mình tích hợp SonarQube để hỗ trợ công việc Audit source thông qua github Actions và môi trường local để lấy kết quả, dùng 1 VPS làm trung gian. (lày do VPS yếu chứ ko chạy luôn sonar trên vps thì ok)
 
 Vì sao lại chọn Github thay vì để luôn source local?
 - Tối ưu hoá không gian trên máy tính :D.
